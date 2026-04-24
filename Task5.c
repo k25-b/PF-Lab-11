@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <string.h>
 
-// inner structure
 struct Department {
     char deptCode[10];
     char deptName[50];
 };
 
-// outer structure
 struct Course {
     char courseCode[10];
     char courseName[60];
     int creditHours;
-    struct Department dept;   // nested struct
+    struct Department dept; 
 };
 
-// function to print courses of a specific department
 void searchByDept(struct Course c[], int n, char code[]) {
     int found = 0;
 
@@ -38,7 +35,6 @@ void searchByDept(struct Course c[], int n, char code[]) {
 int main() {
     struct Course c[3];
 
-    // input
     for (int i = 0; i < 3; i++) {
         printf("\nEnter details for course %d\n", i + 1);
 
@@ -60,7 +56,6 @@ int main() {
         fgets(c[i].dept.deptName, 50, stdin);
     }
 
-    // display all
     printf("\nAll Courses:\n");
     for (int i = 0; i < 3; i++) {
         printf("\nCourse %d:\n", i + 1);
@@ -71,7 +66,6 @@ int main() {
         printf("Department Name: %s", c[i].dept.deptName);
     }
 
-    // search by department
     char code[10];
     printf("\nEnter Department Code to search: ");
     scanf("%s", code);

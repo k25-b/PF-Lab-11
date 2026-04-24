@@ -8,7 +8,6 @@ struct Patient {
     char diagnosis[100];
 };
 
-// display all patients
 void displayAll(struct Patient p[], int n) {
     printf("\nAll Patient Records:\n");
 
@@ -22,7 +21,6 @@ void displayAll(struct Patient p[], int n) {
     }
 }
 
-// search by ID
 void searchByID(struct Patient p[], int n, int id) {
     int found = 0;
 
@@ -46,7 +44,6 @@ void searchByID(struct Patient p[], int n, int id) {
 int main() {
     struct Patient p[5];
 
-    // input
     for (int i = 0; i < 5; i++) {
         printf("\nEnter details for patient %d\n", i + 1);
 
@@ -54,7 +51,7 @@ int main() {
         scanf("%d", &p[i].patientID);
 
         printf("Enter Name: ");
-        getchar(); // clear buffer
+        getchar();
         fgets(p[i].name, 50, stdin);
 
         printf("Enter Age: ");
@@ -64,14 +61,12 @@ int main() {
         scanf("%s", p[i].bloodType);
 
         printf("Enter Diagnosis: ");
-        getchar(); // clear buffer again
+        getchar();
         fgets(p[i].diagnosis, 100, stdin);
     }
 
-    // show all
     displayAll(p, 5);
 
-    // search
     int id;
     printf("\nEnter ID to search: ");
     scanf("%d", &id);
